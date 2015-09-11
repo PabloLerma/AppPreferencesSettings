@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76D7058D9B4F8E04668B22E2 /* libPods-AppPreferencesSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36B506F8B941309F30B41471 /* libPods-AppPreferencesSettings.a */; };
 		FD09CA141B93A59B00D4D3E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD09CA131B93A59B00D4D3E8 /* AppDelegate.swift */; };
 		FD09CA161B93A59B00D4D3E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD09CA151B93A59B00D4D3E8 /* ViewController.swift */; };
 		FD09CA191B93A59B00D4D3E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD09CA171B93A59B00D4D3E8 /* Main.storyboard */; };
@@ -27,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36B506F8B941309F30B41471 /* libPods-AppPreferencesSettings.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppPreferencesSettings.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0D7273E02FE3BF1BBB4C913 /* Pods-AppPreferencesSettings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppPreferencesSettings.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppPreferencesSettings/Pods-AppPreferencesSettings.release.xcconfig"; sourceTree = "<group>"; };
+		F784F4D4CCAB4351E79049AC /* Pods-AppPreferencesSettings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppPreferencesSettings.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppPreferencesSettings/Pods-AppPreferencesSettings.debug.xcconfig"; sourceTree = "<group>"; };
 		FD09CA0E1B93A59B00D4D3E8 /* AppPreferencesSettings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppPreferencesSettings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD09CA121B93A59B00D4D3E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD09CA131B93A59B00D4D3E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76D7058D9B4F8E04668B22E2 /* libPods-AppPreferencesSettings.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +63,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47E264BBCC337A91FA4F5B48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				36B506F8B941309F30B41471 /* libPods-AppPreferencesSettings.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7FA840F3ACC3C49F43AB2409 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F784F4D4CCAB4351E79049AC /* Pods-AppPreferencesSettings.debug.xcconfig */,
+				C0D7273E02FE3BF1BBB4C913 /* Pods-AppPreferencesSettings.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FD09CA051B93A59B00D4D3E8 = {
 			isa = PBXGroup;
 			children = (
 				FD09CA101B93A59B00D4D3E8 /* AppPreferencesSettings */,
 				FD09CA261B93A59C00D4D3E8 /* AppPreferencesSettingsTests */,
 				FD09CA0F1B93A59B00D4D3E8 /* Products */,
+				7FA840F3ACC3C49F43AB2409 /* Pods */,
+				47E264BBCC337A91FA4F5B48 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,10 +146,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD09CA2D1B93A59C00D4D3E8 /* Build configuration list for PBXNativeTarget "AppPreferencesSettings" */;
 			buildPhases = (
+				28AF5C547FC322FA003491E6 /* Check Pods Manifest.lock */,
 				FD09CA0A1B93A59B00D4D3E8 /* Sources */,
 				FD09CA0B1B93A59B00D4D3E8 /* Frameworks */,
 				FD09CA0C1B93A59B00D4D3E8 /* Resources */,
 				FD09CA351B93A80800D4D3E8 /* Settings Versioning Script */,
+				86B638F0FB5EE33E675C6617 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,6 +240,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		28AF5C547FC322FA003491E6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		86B638F0FB5EE33E675C6617 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AppPreferencesSettings/Pods-AppPreferencesSettings-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FD09CA351B93A80800D4D3E8 /* Settings Versioning Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -363,6 +419,7 @@
 		};
 		FD09CA2E1B93A59C00D4D3E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F784F4D4CCAB4351E79049AC /* Pods-AppPreferencesSettings.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -374,6 +431,7 @@
 		};
 		FD09CA2F1B93A59C00D4D3E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0D7273E02FE3BF1BBB4C913 /* Pods-AppPreferencesSettings.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -436,6 +494,7 @@
 				FD09CA2F1B93A59C00D4D3E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FD09CA301B93A59C00D4D3E8 /* Build configuration list for PBXNativeTarget "AppPreferencesSettingsTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +503,7 @@
 				FD09CA321B93A59C00D4D3E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
