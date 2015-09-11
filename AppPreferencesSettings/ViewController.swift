@@ -15,8 +15,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var githubURL: UITextView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
+        configureView()
+    }
+    
+    func configureView() {
         if let backgroundColor = (NSUserDefaults.standardUserDefaults().objectForKey("backgroundColor") as? String) {
             self.view.backgroundColor = UIColor(rgba: backgroundColor)
         }
